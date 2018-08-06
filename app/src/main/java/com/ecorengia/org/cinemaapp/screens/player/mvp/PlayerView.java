@@ -51,6 +51,8 @@ public final class PlayerView implements MvpView {
         Timber.e(e);
         final Context context = mView.getContext();
         Toast.makeText(context, context.getString(R.string.err_general_loading), Toast.LENGTH_LONG).show();
+        // Terminate player activity, there was a problem with the loading
+        mPlayerScreen.finish();
     }
 
     public final void onPlayerError(@NonNull final YouTubeInitializationResult errorReason) {

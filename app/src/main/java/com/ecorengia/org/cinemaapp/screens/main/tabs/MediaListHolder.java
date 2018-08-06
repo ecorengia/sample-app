@@ -69,7 +69,8 @@ public final class MediaListHolder extends RecyclerView.ViewHolder {
      *
      * @param movie The movie to bind to.
      */
-    /* package */ final void bind(@NonNull final MovieListObject movie) {
+    /* package */
+    final void bind(@NonNull final MovieListObject movie) {
         // Refresh progress (holders are being reused)
         movieProgress.setVisibility(View.VISIBLE);
         // Set movie thumbnail and placeholder

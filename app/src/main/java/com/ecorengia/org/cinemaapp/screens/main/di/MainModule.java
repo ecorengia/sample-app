@@ -8,7 +8,6 @@ import com.ecorengia.org.cinemaapp.screens.main.MainScreen;
 import com.ecorengia.org.cinemaapp.screens.main.mvp.MainModel;
 import com.ecorengia.org.cinemaapp.screens.main.mvp.MainPresenter;
 import com.ecorengia.org.cinemaapp.screens.main.mvp.MainView;
-import com.ecorengia.org.cinemaapp.screens.main.tabs.MainTabModule;
 
 import javax.inject.Named;
 

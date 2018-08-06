@@ -51,6 +51,7 @@ public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInit
         mDisposable.clear();
         if (mYouTubePlayer != null) {
             mYouTubePlayer.release();
+            mYouTubePlayer = null;
         }
     }
 
@@ -68,6 +69,7 @@ public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInit
     public final void onInitializationSuccess(final YouTubePlayer.Provider provider, final YouTubePlayer player, final boolean wasRestored) {
         Timber.d("Preview player has been initialized.");
         mYouTubePlayer = player;
+        mYouTubePlayer.setShowFullscreenButton(false);
         // Retrieve video preview
         moviePreview();
     }

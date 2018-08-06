@@ -49,6 +49,9 @@ public final class DetailsView implements MvpView {
     private final PublishSubject<MovieDetails> mPreviewClicks = PublishSubject.create();
 
     @NonNull
+    private final DetailsScreen mDetailsScreen;
+
+    @NonNull
     private final View mView;
 
     @BindView(R.id.details_progress)
@@ -79,6 +82,7 @@ public final class DetailsView implements MvpView {
     ViewGroup mPreviewGroup;
 
     public DetailsView(@NonNull final DetailsScreen activity) {
+        mDetailsScreen = activity;
         // Set-up main view
         final FrameLayout parent = new FrameLayout(activity);
         parent.setLayoutParams(new FrameLayout.LayoutParams(
@@ -101,6 +105,8 @@ public final class DetailsView implements MvpView {
         Timber.e(e);
         final Context context = mView.getContext();
         Toast.makeText(context, context.getString(R.string.err_general_loading), Toast.LENGTH_LONG).show();
+        // Terminate details activity, there was a problem with the loading
+        mDetailsScreen.finish();
     }
 
     /**

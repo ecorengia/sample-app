@@ -33,8 +33,7 @@ public final class DetailsScreen extends CinemaBaseActivity<DetailsPresenter> {
         final int movieId = getIntent().getIntExtra(MOVIE_ID, -1);
         if (movieId < 0) {
             Timber.e("Source media feed is not defined.");
-            Toast.makeText(getApplicationContext(), R.string.err_no_media,
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.err_no_media, Toast.LENGTH_LONG).show();
             finish();
             return;
         }

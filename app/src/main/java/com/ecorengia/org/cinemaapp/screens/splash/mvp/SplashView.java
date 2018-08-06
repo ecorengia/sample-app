@@ -1,5 +1,6 @@
 package com.ecorengia.org.cinemaapp.screens.splash.mvp;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +21,13 @@ import timber.log.Timber;
  */
 public final class SplashView implements MvpView {
     @NonNull
+    private final SplashScreen mSplashScreen;
+
+    @NonNull
     private final View mView;
 
     public SplashView(@NonNull final SplashScreen activity) {
+        mSplashScreen = activity;
         // Set-up splash view
         final FrameLayout parent = new FrameLayout(activity);
         parent.setLayoutParams(new FrameLayout.LayoutParams(
@@ -41,6 +46,9 @@ public final class SplashView implements MvpView {
     @Override
     public final void onError(@NonNull final Throwable e) {
         Timber.e(e);
-        Toast.makeText(mView.getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        final Context context = mView.getContext();
+        Toast.makeText(context, context.getString(R.string.err_general_loading), Toast.LENGTH_LONG).show();
+        // Terminate player activity, there was a problem with the loading
+        mSplashScreen.finish();
     }
 }
