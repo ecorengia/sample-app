@@ -46,4 +46,11 @@ public final class DetailsScreen extends CinemaBaseActivity<DetailsPresenter> {
             Timber.e("Presenter has not been set.");
         }
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        // Animate screen when finishing
+        overridePendingTransition(R.anim.stay, R.anim.slide_in_down);
+    }
 }
