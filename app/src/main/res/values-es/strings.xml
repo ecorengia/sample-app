@@ -1,0 +1,17 @@
+<resources>
+    <string name="err_general_loading">No se pudo cargar el contenido de esta página. Por favor, vuelva a intentar más tarde.</string>
+
+    <!-- Main strings -->
+    <string name="section_top_rated">Más votados</string>
+    <string name="section_popular">Popular</string>
+    <string name="section_now_playing">En cartelera</string>
+    <string name="more_text">Más información</string>
+
+    <!-- Details strings -->
+    <string name="play_trailer">Reproducir avance</string>
+    <string name="overview">Descripción</string>
+    <string name="err_no_media">No se encontró el contenido solicitado. Por favor, vuelva a intentar más tarde.</string>
+
+    <!-- Player strings -->
+    <string name="err_player">Ocurrió un problema mientras se intentaba inicializar el reproductor de video (%1$s)</string>
+</resources>
