@@ -18,6 +18,13 @@ The decoupling in turn makes it easily testable (each piece can be tested separa
 #### Presenter
 `Presenters` acts as the glue between `Model` and `View`. They should load data from the Model and give the loaded data to Views. Presenters should contain *no Android UI elements* to make their lifecycle not depend on UI elements, and also to make them easier to test.
 
+High level architecture
+-----------------------
+
+![Screenshot](images/mvp-cinema-app.png)
+
+This sample app is currently using a HTTP cache to serve content when the user is offline. In the future, we can replace this layer by a repository.
+
 Dependency injection
 --------------------
 
@@ -88,7 +95,7 @@ For more information please refer to [building-cmdline](https://developer.androi
 Screenshots
 -----------
 
-![Screenshot](screenshots/screenshot.png)
+![Screenshot](images/screenshot.png)
 
 TODO list
 ---------
