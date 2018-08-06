@@ -36,7 +36,7 @@ It facilitates the implementation of MVP pattern as shown on the code snippet be
                     .build();
     }
     
-    // Within the activity/fragment
+    // Within activities and fragments
     public abstract class CinemaBaseActivity<P extends MvpPresenter> extends DaggerAppCompatActivity {
     
         @Inject
@@ -88,6 +88,7 @@ For more information please refer to [building-cmdline](https://developer.androi
 Screenshots
 -----------
 
+![Screenshot](screenshots/screenshot.png)
 
 TODO list
 ---------
