@@ -8,7 +8,7 @@ import com.ecorengia.org.cinemaapp.mvp.MvpPresenter;
 import io.reactivex.disposables.CompositeDisposable;
 import timber.log.Timber;
 
-public final class DetailsPresenter implements MvpPresenter {
+public class DetailsPresenter implements MvpPresenter {
     @NonNull
     private final DetailsModel mModel;
 
@@ -25,29 +25,29 @@ public final class DetailsPresenter implements MvpPresenter {
     }
 
     @Override
-    public final void onCreate() {
+    public void onCreate() {
         // No-op
     }
 
     @Override
-    public final void onDestroy() {
+    public void onDestroy() {
         mDisposable.clear();
     }
 
     @Override
-    public final void onPause() {
+    public void onPause() {
         // No-op
     }
 
     @Override
-    public final void onResume() {
+    public void onResume() {
         // No-op
     }
 
     /**
      * Queries movie details for the provided {@code movieId}.
      */
-    public final void showDetails(final int movieId) {
+    public void showDetails(final int movieId) {
         mDisposable.add(mModel.getMovieDetails(movieId)
                 .subscribe(this::onDetailsLoaded, mView::onError));
     }

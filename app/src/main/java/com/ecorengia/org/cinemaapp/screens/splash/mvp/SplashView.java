@@ -19,7 +19,7 @@ import timber.log.Timber;
  *
  * @author ecorengia
  */
-public final class SplashView implements MvpView {
+public class SplashView implements MvpView {
     @NonNull
     private final SplashScreen mSplashScreen;
 

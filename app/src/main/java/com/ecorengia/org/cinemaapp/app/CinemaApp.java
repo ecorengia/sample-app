@@ -18,9 +18,9 @@ import timber.log.Timber;
  *
  * @author ecorengia
  */
-public final class CinemaApp extends DaggerApplication {
+public class CinemaApp extends DaggerApplication {
     @Override
-    protected final AndroidInjector<? extends CinemaApp> applicationInjector() {
+    protected AndroidInjector<? extends CinemaApp> applicationInjector() {
         return DaggerCinemaAppComponent.builder()
                 .cinemaApiUrl(BuildConfig.TMDB_BASE_URL)
                 .application(this)
@@ -38,7 +38,7 @@ public final class CinemaApp extends DaggerApplication {
         try {
             ProviderInstaller.installIfNeeded(this);
         } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
-            Timber.e(e);    // Ignore by now
+            // Ignore by now
         }
 
         // Enable Strict Mode on debug mode

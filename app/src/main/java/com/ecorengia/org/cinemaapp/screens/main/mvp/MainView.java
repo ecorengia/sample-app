@@ -23,7 +23,7 @@ import timber.log.Timber;
  *
  * @author ecorengia
  */
-public final class MainView implements MvpView {
+public class MainView implements MvpView {
     @NonNull
     private final View mView;
 

@@ -10,7 +10,7 @@ import com.ecorengia.org.cinemaapp.screens.player.PlayerScreen;
 
 import timber.log.Timber;
 
-public final class DetailsModel extends CinemaBaseModel<DetailsScreen> {
+public class DetailsModel extends CinemaBaseModel<DetailsScreen> {
     public DetailsModel(@NonNull final DetailsScreen screen, @NonNull final CinemaApi cinemaApi) {
         super(screen, cinemaApi);
     }

@@ -8,7 +8,7 @@ import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import timber.log.Timber;
 
-public final class SplashPresenter implements MvpPresenter {
+public class SplashPresenter implements MvpPresenter {
     @NonNull
     private final SplashModel mModel;
 
@@ -25,7 +25,7 @@ public final class SplashPresenter implements MvpPresenter {
     }
 
     @Override
-    public final void onCreate() {
+    public void onCreate() {
         // Call popular, top rated and now playing endpoints in order to cache them
         mDisposable.add(Single.concat(mModel.getPopular(1), mModel.getTopRated(1), mModel.getNowPlaying(1))
                 .subscribe(searchResult -> Timber.d("Received partial result"),
@@ -34,17 +34,17 @@ public final class SplashPresenter implements MvpPresenter {
     }
 
     @Override
-    public final void onDestroy() {
+    public void onDestroy() {
         mDisposable.clear();
     }
 
     @Override
-    public final void onPause() {
+    public void onPause() {
         // No-op
     }
 
     @Override
-    public final void onResume() {
+    public void onResume() {
         // No-op
     }
 }

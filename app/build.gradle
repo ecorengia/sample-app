@@ -70,6 +70,11 @@ android {
         exclude 'README.md'
         exclude 'META-INF/rxjava.properties'
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 ext {
@@ -93,7 +98,7 @@ ext {
     espresso_version = "3.0.2"
     junit_version = "4.12"
     test_runner_version = "1.0.2"
-    mockito_version = "2.13.0"
+    mockito_version = "2.21.0"
     robolectric_version = "3.7.1"
 }
 

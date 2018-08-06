@@ -8,7 +8,7 @@ import com.ecorengia.org.cinemaapp.networking.api.CinemaApi;
 import com.ecorengia.org.cinemaapp.screens.main.MainScreen;
 import com.ecorengia.org.cinemaapp.screens.splash.SplashScreen;
 
-public final class SplashModel extends CinemaBaseModel<SplashScreen> {
+public class SplashModel extends CinemaBaseModel<SplashScreen> {
     public SplashModel(@NonNull final SplashScreen splashScreen, @NonNull final CinemaApi cinemaApi) {
         super(splashScreen, cinemaApi);
     }

@@ -12,7 +12,7 @@ import com.ecorengia.org.cinemaapp.screens.main.MainScreen;
 
 import timber.log.Timber;
 
-public final class MainModel extends CinemaBaseModel<MainScreen> {
+public class MainModel extends CinemaBaseModel<MainScreen> {
     public MainModel(@NonNull final MainScreen screen, @NonNull final CinemaApi cinemaApi) {
         super(screen, cinemaApi);
     }

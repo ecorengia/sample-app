@@ -43,7 +43,7 @@ import timber.log.Timber;
  *
  * @author ecorengia
  */
-public final class DetailsView implements MvpView {
+public class DetailsView implements MvpView {
     private static final DateTimeFormatter MOVIE_DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
 
     private final PublishSubject<MovieDetails> mPreviewClicks = PublishSubject.create();
@@ -122,7 +122,7 @@ public final class DetailsView implements MvpView {
      * @param movieDetails The movie details to bind to.
      */
     /* package */
-    final void bind(@NonNull final MovieDetails movieDetails) {
+    void bind(@NonNull final MovieDetails movieDetails) {
         // Set movie logo image
         Glide.with(mView.getContext())
                 .load(BuildConfig.TMDB_FULL_THUMBS_URL + movieDetails.getBackdropPath())

@@ -22,7 +22,7 @@ import timber.log.Timber;
  *
  * @author ecorengia
  */
-public final class PlayerView implements MvpView {
+public class PlayerView implements MvpView {
     @NonNull
     private final PlayerScreen mPlayerScreen;
 
@@ -55,18 +55,18 @@ public final class PlayerView implements MvpView {
         mPlayerScreen.finish();
     }
 
-    public final void onPlayerError(@NonNull final YouTubeInitializationResult errorReason) {
+    public void onPlayerError(@NonNull final YouTubeInitializationResult errorReason) {
         final String errorMessage = String.format(mPlayerScreen.getString(R.string.err_player), errorReason.toString());
         onPlayerError(errorMessage);
     }
 
-    public final void onPlayerError(@Nullable final String errorMessage) {
+    public void onPlayerError(@Nullable final String errorMessage) {
         Timber.e(errorMessage);
         Toast.makeText(mPlayerScreen, errorMessage != null ? errorMessage : mPlayerScreen.getString(R.string.err_player), Toast.LENGTH_LONG).show();
         mPlayerScreen.finish();
     }
 
-    public final void initializePreviewPlayer(@NonNull final String youtubeKey) {
+    public void initializePreviewPlayer(@NonNull final String youtubeKey) {
         final YouTubePlayerSupportFragment youtubeFragment = YouTubePlayerSupportFragment.newInstance();
         mPlayerScreen.replaceFragment(youtubeFragment, R.id.preview_player_container, false);
         youtubeFragment.initialize(youtubeKey, mPlayerScreen.getPresenter());

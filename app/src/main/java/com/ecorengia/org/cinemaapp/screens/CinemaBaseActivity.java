@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
@@ -89,7 +90,15 @@ public abstract class CinemaBaseActivity<P extends MvpPresenter> extends DaggerA
      * @return The {@link MvpPresenter} associated to this activity.
      */
     @Nullable
-    public final P getPresenter() {
+    public P getPresenter() {
         return mPresenter;
+    }
+
+    /**
+     * Updates presenter reference.
+     */
+    @VisibleForTesting
+    public void setPresenter(@Nullable final P presenter) {
+        this.mPresenter = presenter;
     }
 }

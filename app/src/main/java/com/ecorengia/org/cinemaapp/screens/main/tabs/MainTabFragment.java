@@ -26,7 +26,7 @@ import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import timber.log.Timber;
 
-public final class MainTabFragment extends CinemaBaseFragment<MainPresenter> {
+public class MainTabFragment extends CinemaBaseFragment<MainPresenter> {
     private static final String ARG_SECTION_ID = "section_id";
 
     private MediaSection mSection;
@@ -56,12 +56,12 @@ public final class MainTabFragment extends CinemaBaseFragment<MainPresenter> {
 
     @LayoutRes
     @Override
-    protected final int getLayout() {
+    protected int getLayout() {
         return R.layout.fragment_main_tab;
     }
 
     @Override
-    public final void onCreate(@NonNull final Bundle savedInstanceState) {
+    public void onCreate(@NonNull final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         final Bundle args = getArguments();
@@ -71,7 +71,7 @@ public final class MainTabFragment extends CinemaBaseFragment<MainPresenter> {
     }
 
     @Override
-    public final View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
         final View view = super.onCreateView(inflater, container, savedInstanceState);
         if (view == null) {
             return null;
@@ -102,14 +102,14 @@ public final class MainTabFragment extends CinemaBaseFragment<MainPresenter> {
     /**
      * Updates media progress visibility according to {@code show} value.
      */
-    public final void showMediaLoading(final boolean show) {
+    public void showMediaLoading(final boolean show) {
         mMediaProgress.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     /**
      * Emits scroll events including proximity information about the end of the list.
      */
-    public final Flowable<Boolean> userScrolls() {
+    public Flowable<Boolean> userScrolls() {
         return Flowable.create(emitter -> {
             final RecyclerView.OnScrollListener listener = new RecyclerView.OnScrollListener() {
                 @Override
@@ -134,7 +134,7 @@ public final class MainTabFragment extends CinemaBaseFragment<MainPresenter> {
     /**
      * Emits adapter list's clicks.
      */
-    public final Observable<MovieListObject> itemClicks() {
+    public Observable<MovieListObject> itemClicks() {
         if (mAdapter == null) {
             return Observable.empty();
         }
@@ -144,7 +144,7 @@ public final class MainTabFragment extends CinemaBaseFragment<MainPresenter> {
     /**
      * Swaps current media list with a new one given by {@code movies}.
      */
-    public final void swapAdapter(@NonNull final List<MovieListObject> movies) {
+    public void swapAdapter(@NonNull final List<MovieListObject> movies) {
         if (mAdapter == null) {
             Timber.e("Media list adapter has not being set.");
             return;

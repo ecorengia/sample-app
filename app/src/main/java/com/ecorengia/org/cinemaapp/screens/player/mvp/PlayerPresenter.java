@@ -17,7 +17,7 @@ import java.util.List;
 import io.reactivex.disposables.CompositeDisposable;
 import timber.log.Timber;
 
-public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInitializedListener {
+public class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInitializedListener {
     @NonNull
     private final PlayerModel mModel;
 
@@ -41,13 +41,13 @@ public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInit
     }
 
     @Override
-    public final void onCreate() {
+    public void onCreate() {
         // Initialize player right away
         mView.initializePreviewPlayer(BuildConfig.YOUTUBE_API_KEY);
     }
 
     @Override
-    public final void onDestroy() {
+    public void onDestroy() {
         mDisposable.clear();
         if (mYouTubePlayer != null) {
             mYouTubePlayer.release();
@@ -56,17 +56,17 @@ public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInit
     }
 
     @Override
-    public final void onPause() {
+    public void onPause() {
         // No-op
     }
 
     @Override
-    public final void onResume() {
+    public void onResume() {
         // No-op
     }
 
     @Override
-    public final void onInitializationSuccess(final YouTubePlayer.Provider provider, final YouTubePlayer player, final boolean wasRestored) {
+    public void onInitializationSuccess(final YouTubePlayer.Provider provider, final YouTubePlayer player, final boolean wasRestored) {
         Timber.d("Preview player has been initialized.");
         mYouTubePlayer = player;
         mYouTubePlayer.setShowFullscreenButton(false);
@@ -75,7 +75,7 @@ public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInit
     }
 
     @Override
-    public final void onInitializationFailure(final YouTubePlayer.Provider provider, final YouTubeInitializationResult errorReason) {
+    public void onInitializationFailure(final YouTubePlayer.Provider provider, final YouTubeInitializationResult errorReason) {
         mView.onPlayerError(errorReason);
     }
 
@@ -83,8 +83,7 @@ public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInit
      * Queries movie videos for the current {@code mMovieId}.
      */
     private void moviePreview() {
-        mDisposable.add(mModel.getVideos(mMovieId)
-                .subscribe(this::onVideosLoaded, mView::onError));
+        mDisposable.add(mModel.getVideos(mMovieId).subscribe(this::onVideosLoaded, mView::onError));
     }
 
     /**
@@ -103,11 +102,11 @@ public final class PlayerPresenter implements MvpPresenter, YouTubePlayer.OnInit
     }
 
     @IntRange(from = 0)
-    public final int getMovieId() {
+    public int getMovieId() {
         return mMovieId;
     }
 
-    public final void setMovieId(@IntRange(from = 0) int mMovieId) {
+    public void setMovieId(@IntRange(from = 0) int mMovieId) {
         this.mMovieId = mMovieId;
     }
 }

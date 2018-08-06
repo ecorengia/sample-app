@@ -16,7 +16,7 @@ import java.util.Map;
 import io.reactivex.disposables.CompositeDisposable;
 import timber.log.Timber;
 
-public final class MainPresenter implements MvpPresenter {
+public class MainPresenter implements MvpPresenter {
     private final static int MAX_PAGES = 15;
 
     private final Map<MediaSection, Integer> mCurrentPages = new HashMap<>(MediaSection.values().length);
@@ -37,37 +37,36 @@ public final class MainPresenter implements MvpPresenter {
     }
 
     @Override
-    public final void onCreate() {
+    public void onCreate() {
         // No-op
     }
 
     @Override
-    public final void onDestroy() {
+    public void onDestroy() {
         mDisposable.clear();
     }
 
     @Override
-    public final void onPause() {
+    public void onPause() {
         // No-op
     }
 
     @Override
-    public final void onResume() {
+    public void onResume() {
         // No-op
     }
 
     /**
      * Swaps to movie details when user clicks on details section.
      */
-    public final void respondToClick(@NonNull final MainTabFragment mainTabFragment) {
+    public void respondToClick(@NonNull final MainTabFragment mainTabFragment) {
         mDisposable.add(mainTabFragment.itemClicks().subscribe(mModel::swapToMovieDetails));
     }
 
     /**
      * Loads more items when user is near the end of media list.
      */
-    public final void respondToPagination(@NonNull final MainTabFragment mainTabFragment,
-                                          @NonNull final MediaSection section) {
+    public void respondToPagination(@NonNull final MainTabFragment mainTabFragment, @NonNull final MediaSection section) {
         mDisposable.add(mainTabFragment.userScrolls()
                 .distinctUntilChanged() // Avoid repeated scroll events
                 .filter(needMoreItems -> needMoreItems) // Filter events that are not close the end
@@ -90,7 +89,7 @@ public final class MainPresenter implements MvpPresenter {
     /**
      * Loads content for the given {@code section}.
      */
-    public final void loadContent(@NonNull final MainTabFragment mainTabFragment, @NonNull final MediaSection section) {
+    public void loadContent(@NonNull final MainTabFragment mainTabFragment, @NonNull final MediaSection section) {
         loadContent(mainTabFragment, section, 1);
     }
 
