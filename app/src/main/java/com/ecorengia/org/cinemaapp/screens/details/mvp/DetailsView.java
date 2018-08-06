@@ -1,5 +1,6 @@
 package com.ecorengia.org.cinemaapp.screens.details.mvp;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -98,7 +99,8 @@ public final class DetailsView implements MvpView {
     @Override
     public final void onError(@NonNull final Throwable e) {
         Timber.e(e);
-        Toast.makeText(mView.getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        final Context context = mView.getContext();
+        Toast.makeText(context, context.getString(R.string.err_general_loading), Toast.LENGTH_LONG).show();
     }
 
     /**

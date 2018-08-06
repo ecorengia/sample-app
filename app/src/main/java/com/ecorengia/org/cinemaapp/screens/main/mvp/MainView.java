@@ -1,5 +1,6 @@
 package com.ecorengia.org.cinemaapp.screens.main.mvp;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -53,6 +54,7 @@ public final class MainView implements MvpView {
     @Override
     public final void onError(@NonNull final Throwable e) {
         Timber.e(e);
-        Toast.makeText(mView.getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        final Context context = mView.getContext();
+        Toast.makeText(context, context.getString(R.string.err_general_loading), Toast.LENGTH_LONG).show();
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.ecorengia.org.cinemaapp.networking.interceptors.OfflineInterceptor;
 import com.ecorengia.org.cinemaapp.networking.ssl.CinemaTrustManager;
 import com.ecorengia.org.cinemaapp.networking.ssl.SelfX509TrustManager;
 import com.ecorengia.org.cinemaapp.utils.ArrayUtils;
@@ -68,6 +69,9 @@ public final class LiveHttpFactory implements CinemaHttpFactory {
         final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
         clientBuilder.interceptors().add(loggingInterceptor);
+
+        // Add offline support
+        clientBuilder.interceptors().add(new OfflineInterceptor(context));
 
         Timber.d("HTTP Client has been initialized.");
         return clientBuilder.build();

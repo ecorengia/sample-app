@@ -1,5 +1,6 @@
 package com.ecorengia.org.cinemaapp.screens.player.mvp;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -48,7 +49,8 @@ public final class PlayerView implements MvpView {
     @Override
     public final void onError(@NonNull final Throwable e) {
         Timber.e(e);
-        Toast.makeText(mView.getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        final Context context = mView.getContext();
+        Toast.makeText(context, context.getString(R.string.err_general_loading), Toast.LENGTH_LONG).show();
     }
 
     public final void onPlayerError(@NonNull final YouTubeInitializationResult errorReason) {

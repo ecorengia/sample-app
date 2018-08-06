@@ -101,15 +101,15 @@ public final class MainPresenter implements MvpPresenter {
         switch (section) {
             case TOP_RATED:
                 mDisposable.add(mModel.getTopRated(page)
-                        .subscribe(result -> onDataLoaded(mainTabFragment, MediaSection.TOP_RATED, result), mView::onError));
+                        .subscribe(result -> onDataLoaded(mainTabFragment, result), t -> onLoadError(mainTabFragment, t)));
                 return;
             case POPULAR:
                 mDisposable.add(mModel.getPopular(page)
-                        .subscribe(result -> onDataLoaded(mainTabFragment, MediaSection.TOP_RATED, result), mView::onError));
+                        .subscribe(result -> onDataLoaded(mainTabFragment, result), t -> onLoadError(mainTabFragment, t)));
                 return;
             case NOW_PLAYING:
                 mDisposable.add(mModel.getNowPlaying(page)
-                        .subscribe(result -> onDataLoaded(mainTabFragment, MediaSection.TOP_RATED, result), mView::onError));
+                        .subscribe(result -> onDataLoaded(mainTabFragment, result), t -> onLoadError(mainTabFragment, t)));
                 return;
             default:
                 Timber.w("Media section is unknown.");
@@ -119,13 +119,21 @@ public final class MainPresenter implements MvpPresenter {
     /**
      * Updates media list by adding the results from {@code searchResults}.
      */
-    private void onDataLoaded(@NonNull final MainTabFragment mainTabFragment, @NonNull final MediaSection section, @NonNull final SearchResult searchResults) {
+    private void onDataLoaded(@NonNull final MainTabFragment mainTabFragment, @NonNull final SearchResult searchResults) {
         final List<MovieListObject> videos = searchResults.getResults() != null ? searchResults.getResults() : Collections.emptyList();
         Timber.d("%d movies loaded. Total pages are %d.", videos.size(), searchResults.getTotalPages());
         if (videos.size() > 0) {
             // Update media list with the results
             mainTabFragment.swapAdapter(searchResults.getResults());
         }
+        mainTabFragment.showMediaLoading(false);
+    }
+
+    /**
+     * Notifies about an error while fetching data.
+     */
+    private void onLoadError(@NonNull final MainTabFragment mainTabFragment, @NonNull final Throwable e) {
+        mView.onError(e);
         mainTabFragment.showMediaLoading(false);
     }
 }
