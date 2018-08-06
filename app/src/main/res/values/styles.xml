@@ -28,6 +28,14 @@
         <item name="android:textColor">@android:color/darker_gray</item>
     </style>
 
+    <!-- Player screen -->
+    <style name="VideoPlayerTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
     <!-- Fonts -->
     <style name="TextAppearance.ubuntuBold" parent="@android:style/TextAppearance">
         <item name="android:fontFamily">@font/ubuntu_bold</item>

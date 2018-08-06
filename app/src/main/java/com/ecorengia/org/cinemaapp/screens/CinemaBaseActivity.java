@@ -76,7 +76,7 @@ public abstract class CinemaBaseActivity<P extends MvpPresenter> extends DaggerA
     /**
      * Replaces whatever is in container view with the given {@link Fragment}.
      */
-    protected void replaceFragment(@NonNull final Fragment newFragment, @IdRes final int container, final boolean addToBackStage) {
+    public final void replaceFragment(@NonNull final Fragment newFragment, @IdRes final int container, final boolean addToBackStage) {
         final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(container, newFragment);
         if (addToBackStage) {
@@ -89,7 +89,7 @@ public abstract class CinemaBaseActivity<P extends MvpPresenter> extends DaggerA
      * @return The {@link MvpPresenter} associated to this activity.
      */
     @Nullable
-    public P getPresenter() {
+    public final P getPresenter() {
         return mPresenter;
     }
 }

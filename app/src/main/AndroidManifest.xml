@@ -35,6 +35,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".screens.main.MainScreen" />
         </activity>
+        <activity
+            android:name=".screens.player.PlayerScreen"
+            android:screenOrientation="landscape"
+            android:theme="@style/VideoPlayerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".screens.details.DetailsScreen" />
+        </activity>
     </application>
-
 </manifest>

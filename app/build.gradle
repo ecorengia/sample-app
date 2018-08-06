@@ -30,6 +30,9 @@ android {
             buildConfigField "String", "TMDB_THUMBS_URL", '"https://image.tmdb.org/t/p/w500/"'
             buildConfigField "String", "TMDB_FULL_THUMBS_URL", '"https://image.tmdb.org/t/p/w1280/"'
             buildConfigField "String", "TMDB_API_KEY", '"00000000000000000000000000000000"'
+
+            // TODO: Add a valid Youtube API key here in order to enable video preview
+            buildConfigField "String", "YOUTUBE_API_KEY", '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
         }
         local {
             dimension "environment"
@@ -38,6 +41,8 @@ android {
             buildConfigField "String", "TMDB_THUMBS_URL", '"https://localhost/t/p/w500/"'
             buildConfigField "String", "TMDB_FULL_THUMBS_URL", '"https://localhost/t/p/w1280/"'
             buildConfigField "String", "TMDB_API_KEY", '"00000000000000000000000000000000"'
+
+            buildConfigField "String", "YOUTUBE_API_KEY", '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
         }
     }
     compileOptions {

@@ -15,6 +15,9 @@
     <string name="overview">Overview</string>
     <string name="err_no_media">No media source was found. Please try again later.</string>
 
+    <!-- Player strings -->
+    <string name="err_player">There was an error initializing the preview player (%1$s)</string>
+
     <!-- Placeholders -->
     <string name="placeholder_small">Lorem ipsum dolor sit amet</string>
     <string name="placeholder_medium">Congue aliquam cras nostra pede sem facilisi, erat aptent hac ultrices luctus lectus quis quisque eros.</string>
