@@ -1,11 +1,30 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+    <!-- Action bar -->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Splash screen -->
+    <style name="TextAppearance.Splash.title" parent="TextAppearance.ubuntuBold">
+        <item name="android:textSize">38.0sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Fonts -->
+    <style name="TextAppearance.ubuntuBold" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
     </style>
 
 </resources>

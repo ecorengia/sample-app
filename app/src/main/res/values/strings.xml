@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">CinemaApp</string>
+    <string name="app_name">Cinema+</string>
+
+    <!-- Splash strings -->
+    <string name="splash_title">CINEMA+</string>
+
+    <!-- Main strings -->
+    <string name="section_top_rated">Top Rated</string>
+    <string name="section_popular">Popular</string>
+    <string name="section_now_playing">Now Playing</string>
+    <string name="more_text">More Info</string>
+
+    <!-- Placeholders -->
+    <string name="placeholder_small">Lorem ipsum dolor sit amet</string>
+    <string name="placeholder_medium">Congue aliquam cras nostra pede sem facilisi, erat aptent hac ultrices luctus lectus quis quisque eros.</string>
+    <string name="placeholder_large">Sea wisi saepe convenire in. Eu pro suas ancillae hendrerit. Eam ipsum paulo id, pro ei falli interpretaris. Te ipsum percipit eum. Usu ex vidit simul accusamus. Te graeci incorrupte ius.</string>
 </resources>

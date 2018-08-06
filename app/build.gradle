@@ -25,14 +25,18 @@ android {
         live {
             dimension "environment"
 
-            // TODO: Add a valid TMDB API key here in order to be able to use this app
+            // TODO: Add a valid TMDB API key here in order to enable this app
             buildConfigField "String", "TMDB_BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "TMDB_THUMBS_URL", '"https://image.tmdb.org/t/p/w500/"'
+            buildConfigField "String", "TMDB_FULL_THUMBS_URL", '"https://image.tmdb.org/t/p/w1280/"'
             buildConfigField "String", "TMDB_API_KEY", '"00000000000000000000000000000000"'
         }
         local {
             dimension "environment"
 
             buildConfigField "String", "TMDB_BASE_URL", '"https://localhost/3/"'
+            buildConfigField "String", "TMDB_THUMBS_URL", '"https://localhost/t/p/w500/"'
+            buildConfigField "String", "TMDB_FULL_THUMBS_URL", '"https://localhost/t/p/w1280/"'
             buildConfigField "String", "TMDB_API_KEY", '"00000000000000000000000000000000"'
         }
     }
@@ -67,6 +71,7 @@ ext {
     support_lib_version = "27.1.1"
     constraint_layout_version = "1.1.2"
     play_services_auth_version = "15.0.1"
+    lifecycle_version = "1.1.1"
     retrofit_version = "2.3.0"
     okhttp3_version = "3.9.1"
     room_version = "1.1.1"
@@ -99,6 +104,12 @@ dependencies {
 
     // Play services
     implementation "com.google.android.gms:play-services-auth:$play_services_auth_version"
+
+    // Lifecycle components
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:support-v4:27.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
 
     // Networking
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -137,6 +148,9 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
+    // Time
+    implementation 'joda-time:joda-time:2.9.9'
+
     // Testing
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
@@ -145,7 +159,7 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espresso_version"
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okhttp3_version"
-    testImplementation "android.arch.persistence.room:testing:$room_version"
+    androidTestImplementation "android.arch.persistence.room:testing:$room_version"
     androidTestImplementation "com.google.dagger:dagger:$dagger_version"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 }
