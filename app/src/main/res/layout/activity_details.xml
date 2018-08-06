@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/softBlue"
+    tools:context=".screens.details.DetailsScreen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/movie_details_top"
+                layout="@layout/widget_movie_details_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/details_thumb_height" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:id="@+id/movie_details_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                    android:textColor="@color/colorDarkGray"
+                    android:textStyle="bold"
+                    tools:text="@string/placeholder_small" />
+
+                <include layout="@layout/widget_movie_genres" />
+
+                <include layout="@layout/widget_movie_header" />
+
+                <TextView
+                    android:id="@+id/movie_details_tagline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/details_section_margin"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:gravity="clip_horizontal"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:textStyle="italic"
+                    tools:text="@string/placeholder_medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/details_section_margin"
+                    android:layout_marginTop="@dimen/details_section_margin"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:gravity="clip_horizontal"
+                    android:text="@string/overview"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/movie_details_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:gravity="clip_horizontal"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                    tools:text="@string/placeholder_large" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

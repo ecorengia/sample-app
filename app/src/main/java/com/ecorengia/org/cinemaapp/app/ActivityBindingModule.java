@@ -1,5 +1,7 @@
 package com.ecorengia.org.cinemaapp.app;
 
+import com.ecorengia.org.cinemaapp.screens.details.DetailsScreen;
+import com.ecorengia.org.cinemaapp.screens.details.di.DetailsModule;
 import com.ecorengia.org.cinemaapp.screens.main.MainScreen;
 import com.ecorengia.org.cinemaapp.screens.main.di.MainModule;
 import com.ecorengia.org.cinemaapp.screens.main.tabs.MainTabModule;
@@ -23,4 +25,8 @@ import dagger.android.ContributesAndroidInjector;
     @ActivityScoped
     @ContributesAndroidInjector(modules = {MainModule.class, MainTabModule.class})
     abstract MainScreen mainScreen();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = DetailsModule.class)
+    abstract DetailsScreen detailsScreen();
 }

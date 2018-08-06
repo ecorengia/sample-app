@@ -6,4 +6,6 @@
 
     <color name="softBlue">#cfd8dc</color>
     <color name="accentBlue">#01579b</color>
+
+    <color name="colorDarkGray">#37474f</color>
 </resources>

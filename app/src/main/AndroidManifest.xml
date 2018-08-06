@@ -28,5 +28,13 @@
             android:name=".screens.main.MainScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.details.DetailsScreen"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".screens.main.MainScreen" />
+        </activity>
     </application>
+
 </manifest>
